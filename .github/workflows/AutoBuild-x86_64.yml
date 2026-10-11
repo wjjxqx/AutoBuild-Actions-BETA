@@ -8,7 +8,7 @@ name: x86_64
 
 on:
   repository_dispatch:
-  ## Git Push 时触发编�?不要删除此行注释)
+  ## Git Push 时触发编译(不要删除此行注释)
   #push:
   #  branches: 
   #    - master
@@ -17,11 +17,11 @@ on:
   #schedule:
   #  - cron: 0 8 * * 5
   
-  ## 重新点亮 Star 时触发编�?不要删除此行注释)
+  ## 重新点亮 Star 时触发编译(不要删除此行注释)
   #watch:
   #  types: [started]
   
-  ### 界面控制部分 ( 以下内容请保持不�? 如有需要仅修改 options 选项 )
+  ### 界面控制部分 ( 以下内容请保持不变, 如有需要仅修改 options 选项 )
   workflow_dispatch:
     inputs:
       Tempoary_CONFIG:
@@ -42,32 +42,35 @@ on:
           - 'Test'
       Tempoary_IP:
         description: '固件 IP 地址 [可选]'
-        default: ''
+        default: '192.168.6.2'
       UPLOAD_RELEASES:
-        description: '上传固件�?Releases'
+        description: '上传固件到 Releases'
         default: 'true'
         type: boolean
       UPLOAD_ARTIFACTS:
-        description: '上传固件�?Artifacts'
-        default: 'false'
+        description: '上传固件到 Artifacts'
+        default: 'true'
         type: boolean
       UPLOAD_BIN_ARTIFACTS:
         description: '上传 bin 文件夹到 Artifacts'
-        default: 'false'
+        default: 'true'
         type: boolean
-      ### 界面控制部分结束 ( 以上内容请保持不�?)
+      ### 界面控制部分结束 ( 以上内容请保持不变 )
 
-### 请按需求修改以下内�?### 环境变量设置
+### 请按需求修改以下内容
+### 环境变量设置
 env:
 # 编译时调用的 [.config] 文件名称
   CONFIG_FILE: x86_64
 # 源码仓库:分支
   DEFAULT_SOURCE: immortalwrt/immortalwrt:openwrt-24.10
-# 删除无用文件以增加编译空�?  DELETE_USELESS_FILES: true
-# 删除早期�?workflow 任务
-  DELETE_OLD_WORKFLOW: false
+# 删除无用文件以增加编译空间
+  DELETE_USELESS_FILES: true
+# 删除早期的 workflow 任务
+  DELETE_OLD_WORKFLOW: true
 ### 结束
-### 请按需求修改以上内�?
+### 请按需求修改以上内容
+
 jobs:
   Compile:
     runs-on: ubuntu-22.04
