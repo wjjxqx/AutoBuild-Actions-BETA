@@ -7,24 +7,20 @@ CONFIG_TARGET_SUBTARGET="64"
 CONFIG_TARGET_ARCH_PACKAGES="x86_64"
 CONFIG_ARCH="x86_64"
 CONFIG_x86_64=y
-
 # 镜像格式：仅输出Hyper‑V VHDX；不需要gzip压缩vhdx可关闭
 CONFIG_TARGET_IMAGES_GZIP=y
 CONFIG_VHDX_IMAGES=y
 # CONFIG_QCOW2_IMAGES is not set
 # CONFIG_VMDK_IMAGES is not set
-
 # GRUB BIOS Gen1 Hyper‑V，无启动菜单等待
 CONFIG_GRUB_IMAGES="pc"
 CONFIG_GRUB_BAUDRATE=115200
 CONFIG_GRUB_TIMEOUT="0"
-
 # 分区配置 x86虚拟机
 CONFIG_TARGET_ROOTFS_SQUASHFS=y
 # CONFIG_TARGET_ROOTFS_EXT4FS is not set
 CONFIG_TARGET_KERNEL_PARTSIZE=32
 CONFIG_TARGET_ROOTFS_PARTSIZE=2048
-
 # virtio / Hyper‑V 虚拟机必须驱动（全部保留）
 CONFIG_PACKAGE_kmod-virtio-pci=y
 CONFIG_PACKAGE_kmod-virtio-net=y
@@ -35,10 +31,8 @@ CONFIG_PACKAGE_kmod-hv-vmbus=y
 CONFIG_PACKAGE_kmod-hv-balloon=y
 CONFIG_PACKAGE_kmod-hv-netvsc=y
 CONFIG_PACKAGE_kmod-scsi-hyperv=y
-
 # ===== 预装软件包清单（保留业务所需全套）=====
 CONFIG_PACKAGE_7z=y
-
 # mjpg‑streamer 视频流服务器
 CONFIG_PACKAGE_mjpg-streamer=y
 CONFIG_PACKAGE_mjpg-streamer-input-file=y
@@ -51,7 +45,6 @@ CONFIG_PACKAGE_mjpg-streamer-output-zmq=y
 CONFIG_PACKAGE_mjpg-streamer-www-simple=y
 CONFIG_PACKAGE_luci-app-mjpg-streamer=y
 CONFIG_PACKAGE_luci-i18n-mjpg-streamer-zh-cn=y
-
 CONFIG_PACKAGE_adguardhome=y
 CONFIG_PACKAGE_appfilter=y
 CONFIG_PACKAGE_aria2=y
@@ -126,8 +119,7 @@ CONFIG_PACKAGE_jq=y
 CONFIG_PACKAGE_jshn=y
 CONFIG_PACKAGE_jsonfilter=y
 CONFIG_PACKAGE_kernel=y
-
-# -------- 删减物理硬件显卡、物理网卡、蓝牙、音频驱动，保留虚拟机必需kmod --------
+# -------- 保留无线、USB全部驱动 --------
 CONFIG_PACKAGE_kmod-cfg80211=y
 CONFIG_PACKAGE_kmod-fs-exfat=y
 CONFIG_PACKAGE_kmod-fs-ext4=y
@@ -221,7 +213,6 @@ CONFIG_PACKAGE_kmod-usb-storage=y
 CONFIG_PACKAGE_kmod-usb-storage-extras=y
 CONFIG_PACKAGE_kmod-usb-storage-uas=y
 CONFIG_PACKAGE_kmod-veth=y
-
 CONFIG_PACKAGE_knot-host=y
 CONFIG_PACKAGE_knot-libs=y
 CONFIG_PACKAGE_koolproxy=y
@@ -330,7 +321,6 @@ CONFIG_PACKAGE_lmdb=y
 CONFIG_PACKAGE_logd=y
 CONFIG_PACKAGE_lsblk=y
 CONFIG_PACKAGE_lua=y
-
 # Luci APP 保留指定全套
 CONFIG_PACKAGE_luci=y
 CONFIG_PACKAGE_luci-app-adguardhome=y
@@ -376,7 +366,6 @@ CONFIG_PACKAGE_luci-app-vlmcsd=y
 CONFIG_PACKAGE_luci-app-vsftpd=y
 # CONFIG_PACKAGE_luci-app-webd is not set
 CONFIG_PACKAGE_luci-app-zerotier=y
-
 CONFIG_PACKAGE_luci-base=y
 CONFIG_PACKAGE_luci-compat=y
 CONFIG_PACKAGE_luci-i18n-appfilter-zh-cn=y
@@ -407,7 +396,6 @@ CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-vsftpd-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-webd-zh-cn is not set
 CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
-
 CONFIG_PACKAGE_luci-js-deps=y
 CONFIG_PACKAGE_luci-lib-base=y
 CONFIG_PACKAGE_luci-lib-docker=y
@@ -447,7 +435,6 @@ CONFIG_PACKAGE_openwrt-keyring=y
 CONFIG_PACKAGE_opkg=y
 CONFIG_PACKAGE_parted=y
 CONFIG_PACKAGE_partx-utils=y
-
 # PHP8完整套件保留
 CONFIG_PACKAGE_php8=y
 CONFIG_PACKAGE_php8-cgi=y
@@ -468,13 +455,11 @@ CONFIG_PACKAGE_php8-mod-snmp=y
 CONFIG_PACKAGE_php8-mod-xml=y
 CONFIG_PACKAGE_php8-mod-zip=y
 CONFIG_PACKAGE_php8-pecl-redis=y
-
 CONFIG_PACKAGE_ppp=y
 CONFIG_PACKAGE_ppp-mod-pppoe=y
 CONFIG_PACKAGE_procd=y
 CONFIG_PACKAGE_procd-seccomp=y
 CONFIG_PACKAGE_procd-ujail=y
-
 # Python3完整套件保留
 CONFIG_PACKAGE_python3=y
 CONFIG_PACKAGE_python3-aiohttp=y
@@ -516,7 +501,6 @@ CONFIG_PACKAGE_python3-urllib=y
 CONFIG_PACKAGE_python3-uuid=y
 CONFIG_PACKAGE_python3-xml=y
 CONFIG_PACKAGE_python3-yarl=y
-
 CONFIG_PACKAGE_quickstart=y
 CONFIG_PACKAGE_rclone=y
 CONFIG_PACKAGE_rclone-config=y
@@ -618,21 +602,17 @@ CONFIG_PACKAGE_xz=y
 CONFIG_PACKAGE_xz-utils=y
 CONFIG_PACKAGE_zerotier=y
 CONFIG_PACKAGE_zlib=y
-
 CONFIG_PACKAGE_zram-swap=y
-
 # DDNS
 CONFIG_PACKAGE_ddns-scripts=y
 CONFIG_PACKAGE_ddns-scripts_aliyun=y
 CONFIG_PACKAGE_ddns-scripts_cloudflare.com-v4=y
 CONFIG_PACKAGE_ddns-scripts_dnspod=y
 CONFIG_PACKAGE_ddns-scripts_no-ip_com=y
-
 # TurboAcc加速
 CONFIG_PACKAGE_TURBOACC_INCLUDE_FLOW_OFFLOADING=y
 CONFIG_PACKAGE_TURBOACC_INCLUDE_BBR_CCA=y
 CONFIG_PACKAGE_TURBOACC_INCLUDE_FULLCONE=y
-
 # 全局构建内核配置
 CONFIG_MODULES=y
 CONFIG_HAVE_DOT_CONFIG=y
@@ -658,12 +638,10 @@ CONFIG_USES_SQUASHFS=y
 CONFIG_USES_ROOTFS_PART=y
 CONFIG_USES_BOOT_PART=y
 CONFIG_REGULATOR_SUPPORT=y
-
 CONFIG_TARGET_EXT4_RESERVED_PCT=0
 CONFIG_TARGET_EXT4_BLOCKSIZE_4K=y
 CONFIG_TARGET_EXT4_BLOCKSIZE=4096
 CONFIG_TARGET_EXT4_JOURNAL=y
-
 CONFIG_SIGNED_PACKAGES=y
 CONFIG_SIGNATURE_CHECK=y
 CONFIG_DOWNLOAD_CHECK_CERTIFICATE=y
@@ -671,7 +649,6 @@ CONFIG_DOWNLOAD_CHECK_CERTIFICATE=y
 CONFIG_DISPLAY_SUPPORT=y
 # CONFIG_BUILD_PATENTED is not set
 CONFIG_SHADOW_PASSWORDS=y
-
 CONFIG_KERNEL_PRINTK=y
 CONFIG_KERNEL_SWAP=y
 CONFIG_KERNEL_PROC_STRIPPED=y
@@ -691,7 +668,6 @@ CONFIG_USE_FS_ACL_ATTR=y
 CONFIG_KERNEL_FS_POSIX_ACL=y
 CONFIG_KERNEL_CC_OPTIMIZE_FOR_SIZE=y
 CONFIG_KERNEL_PREEMPT_NONE=y
-
 CONFIG_MOLD=y
 CONFIG_IPV6=y
 CONFIG_USE_SSTRIP=y
@@ -702,29 +678,24 @@ CONFIG_PKG_CC_STACKPROTECTOR_REGULAR=y
 CONFIG_PKG_FORTIFY_SOURCE_1=y
 CONFIG_PKG_RELRO_FULL=y
 CONFIG_USE_SECCOMP=y
-
 CONFIG_LIBC="musl"
 CONFIG_TARGET_SUFFIX="musl"
 CONFIG_BINUTILS_VERSION_2_44=y
 CONFIG_BINUTILS_VERSION="2.44"
 CONFIG_GCC_VERSION="13.3.0"
 # CONFIG_GCC_USE_DEFAULT_VERSION is not set
-
 CONFIG_PACKAGE_openwrt-keyring=y
 CONFIG_PACKAGE_procd-seccomp=y
 CONFIG_PACKAGE_urandom-seed=y
 CONFIG_PACKAGE_urngd=y
 CONFIG_PACKAGE_usign=y
 CONFIG_PACKAGE_wifi-scripts=y
-
 CONFIG_PACKAGE_luci-light=y
 CONFIG_LUCI_LANG_zh_Hans=y
 CONFIG_LUCI_LANG_zh_Hant=y
 CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
-
 CONFIG_PACKAGE_uqmi=y
 CONFIG_PACKAGE_libqmi=y
-
 CONFIG_PACKAGE_libopenssl=y
 CONFIG_OPENSSL_OPTIMIZE_SPEED=y
 CONFIG_OPENSSL_WITH_ASM=y
@@ -733,7 +704,6 @@ CONFIG_OPENSSL_WITH_ERROR_MESSAGES=y
 CONFIG_OPENSSL_WITH_TLS13=y
 CONFIG_OPENSSL_WITH_CHACHA_POLY1305=y
 CONFIG_OPENSSL_PREFER_CHACHA_OVER_GCM=y
-
 CONFIG_PACKAGE_libnl-tiny2025=y
 CONFIG_PACKAGE_libubox=y
 CONFIG_PACKAGE_libubus=y
@@ -755,10 +725,8 @@ CONFIG_PACKAGE_luci-lib-base=y
 CONFIG_PACKAGE_luci-mod-network=y
 CONFIG_PACKAGE_luci-mod-status=y
 CONFIG_PACKAGE_luci-mod-system=y
-
 CONFIG_PACKAGE_wpad-basic-openssl=y
 CONFIG_PACKAGE_hostapd-common=y
-
 CONFIG_PACKAGE_rpcd-mod-luci=y
 CONFIG_PACKAGE_ucode=y
 CONFIG_PACKAGE_ucode-mod-digest=y
